@@ -8,7 +8,7 @@ node {
        }
     }
     stage('action') {
-        dir('day2instance_bucket'){
+        dir('day-2'){
         echo "Terraform action is --> ${action}"
         sh "terraform ${action} -auto-approve"
        }
