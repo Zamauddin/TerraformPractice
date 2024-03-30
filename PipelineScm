@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                 checkout scm
+            }
+        }
+         stage('init') {
+            steps {
+                dir('day-2'){
+                sh "terraform init"
+                }
+            }
+        }
+        stage('action') {
+            steps {
+                dir('day-2'){
+                echo "Terraform action is --> ${action}"
+                sh "terraform ${action} -auto-approve"
+                }
+            }    
+        }
+    }
+}
