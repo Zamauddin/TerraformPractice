@@ -9,6 +9,7 @@ node {
     }
     stage('action') {
         dir('day-2'){
+        def action = ''
         echo "Terraform action is --> ${action}"
         sh "terraform ${action} -auto-approve"
        }
