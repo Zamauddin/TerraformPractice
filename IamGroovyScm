@@ -1,0 +1,16 @@
+node {
+    stage('checkout') { 
+        checkout scm
+    }
+    stage('init') {
+        dir('Day-11'){
+        sh "terraform init"
+       }
+    }
+    stage('action') {
+        dir('Day-11'){
+        echo "Terraform action is --> ${action}"
+        sh "terraform ${action} -auto-approve"
+       }
+    }
+}
